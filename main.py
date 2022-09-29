@@ -23,19 +23,19 @@ height = screen.get_height()
 
 #Title and Icon
 pygame.display.set_caption('Space Game')
-icon = pygame.image.load('SpaceGame/SpaceGameLogo.png')
+icon = pygame.image.load('SpaceGameLogo.png')
 pygame.display.set_icon(icon)
 
 #background
-bg = pygame.image.load('SpaceGame/background.jpg')
+bg = pygame.image.load('background.jpg')
 bg =pygame.transform.scale(bg, (800, 600))
 
 #background music
-mixer.music.load('SpaceGame/background.wav')
+mixer.music.load('background.wav')
 mixer.music.play(-1)
 
 #player image and Scale
-playerImg = pygame.image.load('SpaceGame/SpaceGameLogo.png')
+playerImg = pygame.image.load('SpaceGameLogo.png')
 playerImg = pygame.transform.scale(playerImg, (50, 50))
 
 #Player
@@ -55,7 +55,7 @@ enemyN = 3
 
 for i  in range (enemyN) :
     #Enemy image and Scale
-    enemyImg.append(pygame.image.load('SpaceGame/EnemyImg.png'))
+    enemyImg.append(pygame.image.load('EnemyImg.png'))
     #Enemy
     enemyX.append(random.randint(0, 730))
     enemyY.append(random.randint(0, 50))
@@ -68,7 +68,7 @@ for i  in range (enemyN) :
     enemyImg[i] = pygame.transform.scale(enemyImg[i], (100, 100))
 
 #Bullet image and Scale
-bulletImg = pygame.image.load('SpaceGame/bullet.png')
+bulletImg = pygame.image.load('bullet.png')
 bulletImg = pygame.transform.scale(bulletImg, (30, 30))
 
 #bullet
@@ -80,11 +80,11 @@ Bspeed = 13
 
 #score
 kills = 0
-font = pygame.font.Font('SpaceGame/GameFont.ttf',32)
+font = pygame.font.Font('GameFont.ttf',32)
 
 #Best score
 best_score = 0
-best_score_font = pygame.font.Font('SpaceGame/GameFont.ttf',32)
+best_score_font = pygame.font.Font('GameFont.ttf',32)
 
 #show the score on the screen
 def show_score(x, y):
@@ -98,11 +98,11 @@ def show_best_score():
 
 #GameOver
 end_the_game = False
-GameOver_font = pygame.font.Font('SpaceGame/GameFont.ttf',100)
+GameOver_font = pygame.font.Font('GameFont.ttf',100)
 
 #restart the game button
 restart_the_game = False
-restart_font = pygame.font.Font('SpaceGame/GameFont.ttf',70)
+restart_font = pygame.font.Font('GameFont.ttf',70)
 R = 255
 G = 255
 B = 255
@@ -130,7 +130,7 @@ def enemy(x, y, i):
 def bullet(x, y):
     screen.blit(bulletImg, (x, y))
     #bullet sound
-    bullet_sound = mixer.Sound('SpaceGame/laser.wav')
+    bullet_sound = mixer.Sound('laser.wav')
     bullet_sound.set_volume(0.1)
     bullet_sound.play()
 
@@ -236,7 +236,7 @@ while running:
             if collision(enemyX[i], enemyY[i], bulletX, bulletY) and collision(enemyX[i], enemyY[i], playerX, playerY) == False:
                 showB = False
                 enemyHP[i] += 1
-                explosion_sound = mixer.Sound('SpaceGame/explosion.wav')
+                explosion_sound = mixer.Sound('explosion.wav')
                 explosion_sound.set_volume(1.0)
                 explosion_sound.play()
 
